@@ -1,57 +1,48 @@
-package main
+package server
 
 import (
 	"fmt"
-	"google.golang.org/grpc"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
-	"log"
+	"log/slog"
 	"net"
 
 	"github.com/watchlist-kata/protos/watchlist"
 	"github.com/watchlist-kata/watchlist/internal/config"
 	"github.com/watchlist-kata/watchlist/internal/repository"
 	"github.com/watchlist-kata/watchlist/internal/service"
+	"github.com/watchlist-kata/watchlist/pkg/utils"
+	"google.golang.org/grpc"
 )
 
-func main() {
-	// Загрузка конфигурации
-	cfg, err := config.LoadConfig()
+// RunServer запускает gRPC сервер
+func RunServer(cfg *config.Config, logger *slog.Logger) error {
+	// Подключение к базе данных
+	db, err := utils.ConnectToDatabase(cfg)
 	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Инициализация подключения к базе данных
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
-		cfg.DBHost, cfg.DBUser, cfg.DBPassword, cfg.DBName, cfg.DBPort, cfg.DBSSLMode)
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatalf("failed to connect to database: %v", err)
-	}
-
-	// Автомиграция таблицы watchlist
-	err = db.AutoMigrate(&repository.GormWatchlist{})
-	if err != nil {
-		log.Fatalf("failed to migrate database: %v", err)
+		logger.Error("failed to connect to database", slog.Any("error", err))
+		return fmt.Errorf("failed to connect to database: %w", err)
 	}
 
 	// Создание репозитория
-	repo := repository.NewPostgresRepository(db)
+	repo := repository.NewPostgresRepository(db, logger)
 
 	// Создание сервиса
-	svc := service.NewWatchlistService(repo)
+	svc := service.NewWatchlistService(repo, logger)
 
 	// Запуск gRPC сервера
 	lis, err := net.Listen("tcp", cfg.GRPCPort)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		logger.Error("failed to listen", slog.Any("error", err))
+		return fmt.Errorf("failed to listen: %w", err)
 	}
 
 	s := grpc.NewServer()
 	watchlist.RegisterWatchlistServiceServer(s, svc)
 
-	log.Printf("Starting gRPC server on %s\n", cfg.GRPCPort)
+	logger.Info("starting gRPC server", slog.String("port", cfg.GRPCPort))
+	fmt.Printf("Starting gRPC server on %s\n", cfg.GRPCPort)
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		logger.Error("failed to serve", slog.Any("error", err))
+		return fmt.Errorf("failed to serve: %w", err)
 	}
+	return nil
 }

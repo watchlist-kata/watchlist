@@ -1,0 +1,15 @@
+services:
+  watchlist:
+    build: .
+    ports:
+      - "50054:50054"
+    env_file:
+      - ./cmd/.env
+    volumes:
+      - ./cmd/logs:/app/logs
+    networks:
+      - watchlist-network
+
+networks:
+  watchlist-network:
+    driver: bridge

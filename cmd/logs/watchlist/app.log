@@ -1,0 +1,36 @@
+[INFO] - 2025-02-27T18:13:23+03:00 - starting gRPC server
+[INFO] - 2025-02-27T18:23:34+03:00 - media checked in watchlist for media ID: 10 and user ID: 5
+[INFO] - 2025-02-27T18:23:35+03:00 - media added to watchlist successfully for media ID: 10 and user ID: 5
+[INFO] - 2025-02-27T18:23:35+03:00 - media added to watchlist successfully for media ID: 10 and user ID: 5
+[INFO] - 2025-02-27T18:23:59+03:00 - media checked in watchlist for media ID: 15 and user ID: 6
+[INFO] - 2025-02-27T18:24:00+03:00 - media added to watchlist successfully for media ID: 15 and user ID: 6
+[INFO] - 2025-02-27T18:24:00+03:00 - media added to watchlist successfully for media ID: 15 and user ID: 6
+[INFO] - 2025-02-27T18:24:19+03:00 - media checked in watchlist for media ID: 150 and user ID: 7
+[ERROR] - 2025-02-27T18:24:19+03:00 - failed to add media to watchlist for media ID: 150 and user ID: 7
+[ERROR] - 2025-02-27T18:24:19+03:00 - failed to add media to watchlist for media ID: 150 and user ID: 7
+[INFO] - 2025-02-27T18:25:03+03:00 - media checked in watchlist for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:25:03+03:00 - media added to watchlist successfully for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:25:03+03:00 - media added to watchlist successfully for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:25:35+03:00 - media checked in watchlist for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:25:36+03:00 - media removed from watchlist successfully for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:25:36+03:00 - media removed from watchlist successfully for media ID: 150 and user ID: 8
+[INFO] - 2025-02-27T18:26:04+03:00 - media checked in watchlist for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T18:26:05+03:00 - media added to watchlist successfully for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T18:26:05+03:00 - media added to watchlist successfully for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T18:26:10+03:00 - media checked in watchlist for media ID: 28 and user ID: 5
+[INFO] - 2025-02-27T18:26:10+03:00 - media added to watchlist successfully for media ID: 28 and user ID: 5
+[INFO] - 2025-02-27T18:26:10+03:00 - media added to watchlist successfully for media ID: 28 and user ID: 5
+[INFO] - 2025-02-27T18:26:22+03:00 - watchlist fetched successfully for user ID: 5
+[INFO] - 2025-02-27T18:26:22+03:00 - watchlist fetched successfully for user ID: 5
+[INFO] - 2025-02-27T18:26:47+03:00 - media checked in watchlist for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T18:26:47+03:00 - media checked in watchlist for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T15:34:08Z - starting gRPC server
+[INFO] - 2025-02-27T15:34:16Z - media checked in watchlist for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T15:34:16Z - media checked in watchlist for media ID: 25 and user ID: 5
+[INFO] - 2025-02-27T15:34:22Z - watchlist fetched successfully for user ID: 5
+[INFO] - 2025-02-27T15:34:22Z - watchlist fetched successfully for user ID: 5
+[INFO] - 2025-02-27T15:34:43Z - media checked in watchlist for media ID: 39 and user ID: 5
+[INFO] - 2025-02-27T15:34:44Z - media added to watchlist successfully for media ID: 39 and user ID: 5
+[INFO] - 2025-02-27T15:34:44Z - media added to watchlist successfully for media ID: 39 and user ID: 5
+[INFO] - 2025-02-27T15:34:51Z - watchlist fetched successfully for user ID: 5
+[INFO] - 2025-02-27T15:34:51Z - watchlist fetched successfully for user ID: 5
